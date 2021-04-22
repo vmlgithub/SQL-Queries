@@ -1,0 +1,123 @@
+8:14 PM 4/21/2021 Queries daw sa pag himo ug schema, tables, fields, etc
+
+CREATING SCHEMA: 
+CREATE SCHEMA `hackerhero_practice` ;
+
+
+================================
+
+1. What's the query for creating this new database table with the fields above?
+
+Answer: 
+
+CREATE TABLE `hackerhero_practice`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(255) NOT NULL,
+  `last_name` VARCHAR(255) NULL,
+  `email` VARCHAR(255) NULL,
+  `encrypted_password` VARCHAR(255) NULL,
+  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));
+
+
+================================
+
+2. What's the query for inserting new records into this table?  Write queries for inserting three fake users into the table (one query for each insert).
+
+Answer: 
+
+INSERT INTO `hackerhero_practice`.`users` (`first_name`, `last_name`, `email`, `encrypted_password`) VALUES ('Louie', 'Penales', 'lp@gmail.com', 'jfksjdkfdsj');
+
+
+INSERT INTO `hackerhero_practice`.`users` (`first_name`, `email`, `encrypted_password`) VALUES ('Bulilit', 'Bulilit@gmail.com', 'jfsdjfjdsfk');
+
+
+INSERT INTO `hackerhero_practice`.`users` (`first_name`, `last_name`, `email`, `encrypted_password`) VALUES ('Panda', 'Baby', 'PandaBaby@gmail.com', 'jdfkjdskjfs');
+
+
+================================
+
+3. What's the query for updating one of the user records?  For example, if you wanted to update the user record for id = 1, with some fake data, what would the query be?
+
+Answer:
+
+(I updated the password  on the id #1)
+UPDATE `hackerhero_practice`.`users` SET `encrypted_password` = 'newpassword' WHERE (`id` = '1');
+
+================================
+4. What query would you run for updating all of the user records with the last_name of 'Choi'?
+
+Answer: 
+
+UPDATE `hackerhero_practice`.`users` SET `last_name` = 'Choi' WHERE (`id` = '1');
+UPDATE `hackerhero_practice`.`users` SET `last_name` = 'Choi' WHERE (`id` = '2');
+UPDATE `hackerhero_practice`.`users` SET `last_name` = 'Choi' WHERE (`id` = '3');
+
+================================
+
+5. What query would you run for updating all the user records where ID is 3, 5, 7, 12, or 19?
+
+Answer:
+
+UPDATE `hackerhero_practice`.`users` SET `last_name` = 'Baby' WHERE (`id` = '3');
+UPDATE `hackerhero_practice`.`users` SET `email` = 'dfjkjsdfk@yahoo.com' WHERE (`id` = '5');
+UPDATE `hackerhero_practice`.`users` SET `encrypted_password` = 'dsfsdfsf' WHERE (`id` = '7');
+UPDATE `hackerhero_practice`.`users` SET `last_name` = 'Penales' WHERE (`id` = '12');
+UPDATE `hackerhero_practice`.`users` SET `first_name` = 'Flashy IMU' WHERE (`id` = '19');
+
+================================
+
+6. What's the query for deleting a user record where id = 1?
+
+Answer:
+
+DELETE FROM `hackerhero_practice`.`users` WHERE (`id` = '1');
+
+================================
+
+7. What's the query for deleting the entire users records in the users table?
+
+Answer:
+
+TRUNCATE `hackerhero_practice`.`new_table`;
+
+================================
+
+8. What's the query for dropping the entire users table?  What's the difference between dropping the table and deleting all records?
+
+Answer: 
+
+DROP TABLE `hackerhero_practice`.`delete another`;
+
+Dropping the table is deleting the entire records of the table including the table itself. Deleting all the records only deletes the records but not the table.
+
+================================
+
+9. What's the query for altering the email field to have it be 'email_address' instead?
+
+Answer: 
+
+ALTER TABLE `hackerhero_practice`.`users` 
+CHANGE COLUMN `email` `email_address` VARCHAR(255) NULL DEFAULT NULL ;
+
+================================
+
+10. What's the query for altering the id so that it's a BIGINT instead?
+
+Answer:
+
+ALTER TABLE `hackerhero_practice`.`users` 
+CHANGE COLUMN `id` `id` BIGINT NOT NULL ;
+
+================================
+
+11. What's the query for adding a new field to the users table called is_active where it's a Boolean (meaning it's either a 0 or a 1).  Imagine you wanted the default value of this to be 0 when a new record is created and you won't allow this field to ever be NULL.  With this in mind, now come up with a query.
+
+Answer: 
+
+ALTER TABLE `hackerhero_practice`.`users` 
+ADD COLUMN `is_active` TINYINT NOT NULL DEFAULT 0 AFTER `updated_at`;
+
+
+================================
