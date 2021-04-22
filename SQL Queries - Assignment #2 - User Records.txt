@@ -15,7 +15,6 @@ CREATE TABLE `hackerhero_practice`.`users` (
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
 
-
 ================================
 
 2. What's the query for inserting new records into this table?  Write queries for inserting three fake users into the table (one query for each insert).
@@ -29,7 +28,6 @@ INSERT INTO `hackerhero_practice`.`users` (`first_name`, `email`, `encrypted_pas
 
 
 INSERT INTO `hackerhero_practice`.`users` (`first_name`, `last_name`, `email`, `encrypted_password`) VALUES ('Panda', 'Baby', 'PandaBaby@gmail.com', 'jdfkjdskjfs');
-
 
 ================================
 
@@ -113,6 +111,5 @@ Answer:
 
 ALTER TABLE `hackerhero_practice`.`users` 
 ADD COLUMN `is_active` TINYINT NOT NULL DEFAULT 0 AFTER `updated_at`;
-
 
 ================================
