@@ -1,4 +1,3 @@
-
 ================================
 
 1. What's the query for creating this new database table with the fields above?
